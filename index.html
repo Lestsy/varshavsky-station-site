@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Варшавский вокзал в Петербурге</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    :root {
+      --bg-main: #f3e7d3;
+      --bg-paper: #f0e2c8;
+      --border-dark: #5b3a29;
+      --text-main: #3c2b23;
+      --accent: #8b5b29;
+      --accent-soft: #c2b280;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: "Georgia", "Times New Roman", serif;
+      background: radial-gradient(circle at top, #f7f0e2 0%, var(--bg-main) 40%, #e2cfb1 100%);
+      color: var(--text-main);
+    }
+
+    .page {
+      max-width: 960px;
+      margin: 20px auto;
+      padding: 24px;
+      background: var(--bg-paper);
+      border: 2px solid var(--border-dark);
+      box-shadow:
+        0 0 0 4px #e0cfb0,
+        0 0 25px rgba(0,0,0,0.25);
+      position: relative;
+    }
+
+    /* «Состаренные» уголки */
+    .page::before,
+    .page::after {
+      content: "";
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      border: 2px solid var(--accent-soft);
+    }
+
+    .page::before {
+      top: 10px;
+      left: 10px;
+      border-right: none;
+      border-bottom: none;
+    }
+
+    .page::after {
+      bottom: 10px;
+      right: 10px;
+      border-left: none;
+      border-top: none;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 20px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--accent-soft);
+    }
+
+    .pretitle {
+      font-size: 14px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+
+    h1 {
+      font-size: 30px;
+      margin: 0;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .subtitle {
+      font-size: 15px;
+      margin-top: 8px;
+      color: #6b4a36;
+      font-style: italic;
+    }
+
+    .ornament {
+      margin: 14px auto 0;
+      width: 160px;
+      height: 14px;
+      border-top: 1px solid var(--border-dark);
+      border-bottom: 1px solid var(--border-dark);
+      position: relative;
+    }
+
+    .ornament::before,
+    .ornament::after {
+      content: "✶";
+      position: absolute;
+      top: -10px;
+      font-size: 14px;
+      color: var(--accent);
+    }
+
+    .ornament::before {
+      left: 0;
+    }
+
+    .ornament::after {
+      right: 0;
+    }
+
+    main {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr);
+      gap: 20px;
+    }
+
+    @media (min-width: 900px) {
+      main {
+        grid-template-columns: minmax(0, 3fr) minmax(260px, 2fr);
+      }
+    }
+
+    .section-title {
+      font-size: 18px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin: 0 0 10px;
+      color: var(--accent);
+    }
+
+    p {
+      font-size: 15px;
+      line-height: 1.6;
+      text-align: justify;
+      margin: 0 0 10px;
+    }
+
+    .lead {
+      font-size: 16px;
+      line-height: 1.7;
+      margin-bottom: 14px;
+    }
+
+    .smallcaps {
+      font-variant: small-caps;
+      letter-spacing: 0.12em;
+    }
+
+    .sidebar {
+      padding: 14px 16px;
+      border-left: 1px solid var(--accent-soft);
+      background: linear-gradient(to bottom, #f7ebd8 0%, #ecddc4 100%);
+    }
+
+    .sidebar-title {
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      margin: 0 0 8px;
+      color: #755137;
+    }
+
+    .sidebar-item {
+      font-size: 14px;
+      margin-bottom: 6px;
+    }
+
+    .divider {
+      margin: 16px 0;
+      border: none;
+      border-top: 1px dotted var(--accent-soft);
+    }
+
+    .video-block {
+      margin-top: 10px;
+      padding: 10px 12px 14px;
+      background: #f6e9d5;
+      border: 1px solid var(--accent-soft);
+      box-shadow: 0 3px 8px rgba(0,0,0,0.25);
+      transform: rotate(-0.6deg);
+    }
+
+    .video-caption {
+      font-size: 13px;
+      text-align: center;
+      margin-top: 6px;
+      color: #6b4a36;
+      font-style: italic;
+    }
+
+    .video-wrapper {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      background: #000;
+    }
+
+    .video-wrapper iframe,
+    .video-wrapper video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    footer {
+      margin-top: 22px;
+      padding-top: 10px;
+      border-top: 1px solid var(--accent-soft);
+      font-size: 13px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 6px;
+    }
+
+    .footer-left {
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="pretitle">Императорские железные дороги</div>
+      <h1>Голос вокзала</h1>
+      <div class="subtitle">От бумаги до цифры: Варшавский вокзал в движении времени</div>
+      <div class="ornament"></div>
+    </header>
+
+    <main>
+      <section>
+        <h2 class="section-title">Сценарий ролика</h2>
+        <p class="lead">
+          Короткий ролик показывает эволюцию вокзальных объявлений: от рупора дежурного и бумажных листков на деревянном табло до цифровых экранов и автоинформаторов. Контраст эпох через Варшавский вокзал — от пара до скоростей.
+        </p>
+
+        <hr class="divider">
+
+        <h2 class="section-title">Учебный ролик</h2>
+        <p>
+          Смотрите полную версию: от крупного плана старинных часов и свистка паровоза до split screen с дежурным в шинели и бликом на современном табло. Закадровый голос ведёт через историю: «Время здесь чувствовали на ощупь».
+        </p>
+
+        <div class="video-block">
+          <div class="video-wrapper">
+            <!-- Замените VIDEO_URL_HERE на embed-ссылку YouTube/Vimeo -->
+            <iframe src="VIDEO_URL_HERE" 
+                    title="Голос вокзала: От бумаги до цифры" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+            </iframe>
+          </div>
+          <div class="video-caption">
+            «Голос вокзала: От бумаги до цифры». Варшавский вокзал. История движения.
+          </div>
+        </div>
+
+        <p>
+          Финальная фраза: «Технологии изменились. Но трепет перед дальней дорогой остался прежним». Идеально для Reels/TikTok или вступления к документальному фильму.
+        </p>
+
+        <hr class="divider">
+
+        <h2 class="section-title">Размышления о времени</h2>
+        <p class="lead">
+          Дежурный с рупором, перекрикивающий пар и толпу, был не просто голосом вокзала — он был <em>человеком доверия</em>. Его хриплый крик «Поезд на Варшаву!» нёс в себе тепло живого общения, ответственность за сотни судеб.
+        </p>
+        <p>
+          Сегодня автоинформатор произносит «Уважаемые пассажиры...» без эмоций, без усталости, без права на ошибку. Экран мигает платформой 4 — идеально, но бездушно. Бумажный листок, трепещущий от сквозняка, помнил руки рабочего. Пиксели — помнят только электричество.
+        </p>
+        <p>
+          <strong>Работники информации</strong> — дежурные, телеграфисты, писцы — были <em>нервной системой</em> империи. Они не просто передавали слова: они несли ответственность за timely прибытие поездов, грузов, людей. Цифровой голос вокзала эффективен, но лишен этой человеческой тяжести.
+        </p>
+        <p>
+          В финальной сцене — не просто контраст технологий, а вопрос: <em>может ли машина заменить человека, который чувствует ответственность за каждое объявление?</em> Трепет перед дальней дорогой остался, но кто теперь его озвучит?
+        </p>
+
+      </section>
+
+      <aside class="sidebar">
+        <div class="sidebar-title">Эпохи вокзала</div>
+        <div class="sidebar-item">
+          <span class="smallcaps">Эпоха пара:</span> Рупор, деревянное табло, бумага вручную. Живой голос перекрикивает толпу.
+        </div>
+        <div class="sidebar-item">
+          <span class="smallcaps">Эра цифры:</span> LED-экраны, автоинформатор, смартфоны. Без ошибок, без эмоций.
+        </div>
+        <div class="sidebar-item">
+          <span class="smallcaps">Варшавский вокзал:</span> Отправная точка линии на Гатчину/Варшаву. Символ смены эпох.
+        </div>
+
+        <hr class="divider">
+
+        <div class="sidebar-title">Звуковая палитра</div>
+        <div class="sidebar-item">• Стук колес, свисток, эхо рупора (грязный звук)</div>
+        <div class="sidebar-item">• «Там-там-там», синтезированный голос (стерильный гул)</div>
+        <div class="sidebar-item">• Закадровый диктор: теплый тембр, ностальгия</div>
+
+        <hr class="divider">
+
+        <div class="sidebar-title">Работу выполнили студентки группы ИСТ-331</div>
+        <div class="sidebar-item">Губарева И. Е.</div>
+        <div class="sidebar-item">Стасенко О. В.</div>
+
+        <hr class="divider">
+
+        <div class="sidebar-title">Словарь терминов</div>
+        <div class="sidebar-item"><span class="smallcaps">Депеша:</span> срочное телеграфное сообщение.</div>
+        <div class="sidebar-item"><span class="smallcaps">Гоньба:</span> почтовый маршрут с заменой лошадей.</div>
+        <div class="sidebar-item"><span class="smallcaps">Телеграф:</span> передача по проводам знаками Морзе.</div>
+        <div class="sidebar-item"><span class="smallcaps">Магистраль:</span> главная железная дорога.</div>
+        <div class="sidebar-item"><span class="smallcaps">Депо:</span> обслуживание паровозов.</div>
+      </aside>
+    </main>
+
+    <footer>
+      <div class="footer-left">
+        Учебный ролик по истории вокзальных технологий, Санкт‑Петербург.
+      </div>
+      <div>
+        Варшавский вокзал: 1900-е — рупор и бумага, XXI век — пиксели и автоинформатор.
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
